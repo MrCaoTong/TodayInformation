@@ -1,22 +1,22 @@
-package com.caotong.todayinformation;
+package com.caotong.todayinformation.splash;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-
-import com.caotong.todayinformation.mvp.ISplashActivityContract;
+import com.caotong.todayinformation.base.BaseActivity;
+import com.caotong.todayinformation.main.MainActivity;
+import com.caotong.todayinformation.R;
+import com.caotong.todayinformation.base.ViewInject;
 
 import java.io.File;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-@ViewInject (mainlayoutid = R.layout.activity_splash)
+@ViewInject(mainlayoutid = R.layout.activity_splash)
 public class SplashActivity extends BaseActivity implements ISplashActivityContract.Iview {
 
     @BindView(R.id.video_splash)

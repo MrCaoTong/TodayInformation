@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.caotong.todayinformation.FullVideoView
+    <com.caotong.todayinformation.splash.FullVideoView
         android:id="@+id/video_splash"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

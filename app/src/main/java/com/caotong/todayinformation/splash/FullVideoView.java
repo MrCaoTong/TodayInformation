@@ -1,4 +1,4 @@
-package com.caotong.todayinformation;
+package com.caotong.todayinformation.splash;
 
 import android.content.Context;
 import android.util.AttributeSet;

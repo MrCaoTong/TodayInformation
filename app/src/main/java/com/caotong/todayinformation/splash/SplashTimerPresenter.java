@@ -1,6 +1,5 @@
-package com.caotong.todayinformation;
+package com.caotong.todayinformation.splash;
 
-import com.caotong.todayinformation.mvp.ISplashActivityContract;
 import com.caotong.todayinformation.mvp.base.BaseMvpPresenter;
 
 public class SplashTimerPresenter extends BaseMvpPresenter<ISplashActivityContract.Iview> implements ISplashActivityContract.IPresenter {

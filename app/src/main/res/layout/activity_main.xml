@@ -6,7 +6,8 @@
     <FrameLayout
         android:id="@+id/fl_main_center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/fl_main_bottom">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_main_center"
@@ -34,14 +35,14 @@
             <RadioButton
                 android:id="@+id/rb_main_shanghai"
                 style="@style/main_tab_rb_style"
-                android:text="@string/rl_main_shanghai"
-                android:drawableTop="@drawable/selector_main_top_tab_hangzhou"/>
+                android:drawableTop="@drawable/selector_main_top_tab_shanghai"
+                android:text="@string/rl_main_shanghai" />
 
             <RadioButton
                 android:id="@+id/rb_main_hangzhou"
                 style="@style/main_tab_rb_style"
-                android:text="@string/rl_main_hangzhou"
-                android:drawableTop="@drawable/selector_main_top_tab_hangzhou"/>
+                android:drawableTop="@drawable/selector_main_top_tab_hangzhou"
+                android:text="@string/rl_main_hangzhou" />
         </RadioGroup>
 
         <RadioGroup
@@ -55,14 +56,14 @@
             <RadioButton
                 android:id="@+id/rb_main_beijing"
                 style="@style/main_tab_rb_style"
-                android:text="@string/rl_main_beijing"
-                android:drawableTop="@drawable/selector_main_bottom_tab_beijing"/>
+                android:drawableTop="@drawable/selector_main_bottom_tab_beijing"
+                android:text="@string/rl_main_beijing" />
 
             <RadioButton
                 android:id="@+id/rb_main_shenzhen"
                 style="@style/main_tab_rb_style"
-                android:text="@string/rl_main_shenzhen"
-                android:drawableTop="@drawable/selector_main_bottom_tab_shenzhen"/>
+                android:drawableTop="@drawable/selector_main_bottom_tab_shenzhen"
+                android:text="@string/rl_main_shenzhen" />
         </RadioGroup>
     </FrameLayout>
 </RelativeLayout>
