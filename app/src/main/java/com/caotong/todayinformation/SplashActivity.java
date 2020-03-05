@@ -4,57 +4,79 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.VideoView;
+
+import androidx.annotation.Nullable;
+
+import com.caotong.todayinformation.mvp.ISplashActivityContract;
 
 import java.io.File;
 
-public class SplashActivity extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.OnClick;
 
-    private FullVideoView mVideoView;
-    private TextView mTextView;
+@ViewInject (mainlayoutid = R.layout.activity_splash)
+public class SplashActivity extends BaseActivity implements ISplashActivityContract.Iview {
+
+    @BindView(R.id.video_splash)
+    FullVideoView mVideoView;
+    @BindView(R.id.text_splash)
+    TextView mTextView;
+
+    private ISplashActivityContract.IPresenter timerPresenter;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+    public void afterBindView() {
+        initTimerPresenter();
+        initListener();
+        initVideo();
+    }
 
-        mVideoView = findViewById(R.id.video_splash);
-        mTextView = findViewById(R.id.text_splash);
+    private void initTimerPresenter() {
+        timerPresenter = new SplashTimerPresenter(this);
+        timerPresenter.initTimer();
+    }
 
+    private void initVideo() {
         mVideoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + File.separator + R.raw.splash));
-        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                mp.start();
-            }
-        });
         mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 mp.start();
             }
         });
-        CustomCountDownTimer customCountDownTimer = new CustomCountDownTimer(5, new CustomCountDownTimer.ICountDownHandler() {
-            @Override
-            public void onTicker(int time) {
-                mTextView.setText(time + "秒");
-            }
+    }
 
-            @Override
-            public void onFinish() {
-                mTextView.setText("跳过");
-            }
-        });
-        customCountDownTimer.start();
+    @OnClick({R.id.video_splash, R.id.text_splash})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.video_splash:
+                break;
+            case R.id.text_splash:
+                break;
+        }
+    }
+
+    private void initListener() {
         mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                finish();
             }
         });
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mp.start();
+            }
+        });
+    }
+
+
+    @Override
+    public void setTvTimer(String s) {
+        mTextView.setText(s);
     }
 }
