@@ -1,18 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout
+        android:id="@+id/fl_main_center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/fl_main_bottom">
 
-</android.support.constraint.ConstraintLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_main_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="@dimen/dp_40"
+            android:layout_marginBottom="@dimen/dp_50" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_black_30">
+
+        <RadioGroup
+            android:id="@+id/rg_main_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_main_shanghai"
+                style="@style/main_tab_rb_style"
+                android:drawableTop="@drawable/selector_main_top_tab_shanghai"
+                android:text="@string/rl_main_shanghai" />
+
+            <RadioButton
+                android:id="@+id/rb_main_hangzhou"
+                style="@style/main_tab_rb_style"
+                android:drawableTop="@drawable/selector_main_top_tab_hangzhou"
+                android:text="@string/rl_main_hangzhou" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rg_main_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/rb_main_beijing"
+                style="@style/main_tab_rb_style"
+                android:drawableTop="@drawable/selector_main_bottom_tab_beijing"
+                android:text="@string/rl_main_beijing" />
+
+            <RadioButton
+                android:id="@+id/rb_main_shenzhen"
+                style="@style/main_tab_rb_style"
+                android:drawableTop="@drawable/selector_main_bottom_tab_shenzhen"
+                android:text="@string/rl_main_shenzhen" />
+        </RadioGroup>
+    </FrameLayout>
+</RelativeLayout>
