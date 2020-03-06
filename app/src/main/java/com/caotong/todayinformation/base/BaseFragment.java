@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
 
 public abstract class BaseFragment extends LifeCircleMvpFragment {
 
-    private Context mContext;
+    public Context mContext;
 
     @Override
     public void onAttach(Context context) {
