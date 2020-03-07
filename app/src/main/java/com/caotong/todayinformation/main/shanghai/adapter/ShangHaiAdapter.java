@@ -1,5 +1,6 @@
 package com.caotong.todayinformation.main.shanghai.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.caotong.todayinformation.R;
 import com.caotong.todayinformation.main.shanghai.dto.ShangHaiBean;
+import com.caotong.todayinformation.main.shanghai.view.ShangHaiDetailActivity;
 
 import java.util.ArrayList;
 
@@ -21,9 +23,9 @@ public class ShangHaiAdapter extends RecyclerView.Adapter {
 
     private RecyclerView.RecycledViewPool recyclerViewPool;
     private ArrayList<ShangHaiBean> mData;
-    private Context mContext;
+    private Activity mContext;
 
-    public ShangHaiAdapter(Context context, ArrayList<ShangHaiBean> mData) {
+    public ShangHaiAdapter(Activity context, ArrayList<ShangHaiBean> mData) {
         recyclerViewPool = new RecyclerView.RecycledViewPool();
         this.mContext = context;
         this.mData = mData;
@@ -83,7 +85,7 @@ public class ShangHaiAdapter extends RecyclerView.Adapter {
             this.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(mContext, "position:" + getAdapterPosition(), Toast.LENGTH_LONG).show();
+                    ShangHaiDetailActivity.start_5_0(mContext, imageView);
                 }
             });
         }
