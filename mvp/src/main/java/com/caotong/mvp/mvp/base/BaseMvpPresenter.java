@@ -1,10 +1,10 @@
-package com.caotong.todayinformation.mvp.base;
+package com.caotong.mvp.mvp.base;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.caotong.todayinformation.mvp.IMvpView;
-import com.caotong.todayinformation.mvp.presenter.LifeCirclePresenter;
+import com.caotong.mvp.mvp.IMvpView;
+import com.caotong.mvp.mvp.presenter.LifeCirclePresenter;
 
 /**
  * p层的中间类

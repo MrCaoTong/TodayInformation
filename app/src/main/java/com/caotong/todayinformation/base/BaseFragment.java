@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 
-import com.caotong.todayinformation.mvp.view.LifeCircleMvpFragment;
+import com.caotong.mvp.mvp.view.LifeCircleMvpFragment;
 
 import butterknife.ButterKnife;
 

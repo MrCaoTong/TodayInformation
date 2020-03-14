@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.caotong.todayinformation.mvp.view.LifeCircleMvpActivity;
+import com.caotong.mvp.mvp.view.LifeCircleMvpActivity;
 
 import butterknife.ButterKnife;
 

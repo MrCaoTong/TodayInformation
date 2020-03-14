@@ -2,10 +2,9 @@ package com.caotong.todayinformation.main;
 
 import androidx.fragment.app.Fragment;
 
-import com.caotong.todayinformation.mvp.ILifeCircle;
-import com.caotong.todayinformation.mvp.IMvpView;
-import com.caotong.todayinformation.mvp.MvpControler;
-import com.caotong.todayinformation.splash.ISplashActivityContract;
+import com.caotong.mvp.mvp.ILifeCircle;
+import com.caotong.mvp.mvp.IMvpView;
+import com.caotong.mvp.mvp.MvpControler;
 
 public interface IMainActivityContract {
     interface Iview extends IMvpView {

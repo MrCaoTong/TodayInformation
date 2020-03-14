@@ -1,4 +1,4 @@
-package com.caotong.todayinformation.mvp;
+package com.caotong.mvp.mvp;
 
 public interface IMvpView {
     MvpControler getMvpControler();

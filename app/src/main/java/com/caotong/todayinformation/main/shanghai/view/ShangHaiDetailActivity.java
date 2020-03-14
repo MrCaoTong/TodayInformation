@@ -13,6 +13,8 @@ import androidx.core.util.Pair;
 import com.caotong.todayinformation.R;
 import com.caotong.todayinformation.base.BaseActivity;
 import com.caotong.todayinformation.base.ViewInject;
+import com.caotong.todayinformation.main.shanghai.module.ShangHaiDetailHttpTask;
+import com.caotong.todayinformation.main.shanghai.module.ShangHaiDetailRequest;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +29,11 @@ public class ShangHaiDetailActivity extends BaseActivity {
     @Override
     public void afterBindView() {
         initAnima();
+        initGetNetData();
+    }
+
+    private void initGetNetData() {
+       new ShangHaiDetailHttpTask().getXiaoHuaList("desc", "1", "1");
     }
 
     private void initAnima() {
