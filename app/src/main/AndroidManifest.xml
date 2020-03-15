@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.caotong.todayinformation">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".main.MainActivity" />
+        <activity android:name=".main.shanghai.view.ShangHaiDetailActivity"/>
     </application>
 
 </manifest>

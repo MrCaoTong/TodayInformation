@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 
-import com.caotong.todayinformation.mvp.view.LifeCircleMvpFragment;
+import com.caotong.mvp.mvp.view.LifeCircleMvpFragment;
 
 import butterknife.ButterKnife;
 
 public abstract class BaseFragment extends LifeCircleMvpFragment {
 
-    private Context mContext;
+    public Context mContext;
 
     @Override
     public void onAttach(Context context) {

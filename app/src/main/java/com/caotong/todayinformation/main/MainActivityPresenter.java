@@ -7,7 +7,7 @@ import com.caotong.todayinformation.main.beijing.BeiJingFragment;
 import com.caotong.todayinformation.main.hangzhou.HangZhouFragment;
 import com.caotong.todayinformation.main.shanghai.ShangHaiFragment;
 import com.caotong.todayinformation.main.shenzhen.ShenZhenFragment;
-import com.caotong.todayinformation.mvp.base.BaseMvpPresenter;
+import com.caotong.mvp.mvp.base.BaseMvpPresenter;
 
 public class MainActivityPresenter extends BaseMvpPresenter<IMainActivityContract.Iview> implements IMainActivityContract.IPresenter {
 

@@ -1,4 +1,4 @@
-package com.caotong.todayinformation.mvp;
+package com.caotong.mvp.mvp;
 
 import android.content.Intent;
 import android.os.Bundle;
