@@ -34,4 +34,7 @@ dependencies {
 
     implementation project(':mvp')
     implementation project(':http')
+
+    implementation("com.squareup.okhttp3:okhttp:4.4.0")
+
 }

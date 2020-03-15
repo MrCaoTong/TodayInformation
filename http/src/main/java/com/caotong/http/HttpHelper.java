@@ -1,12 +1,30 @@
 package com.caotong.http;
 
+import com.caotong.http.okhttp.OkHttpScheduler;
 import com.caotong.http.request.IRequest;
+import com.caotong.http.request.call.ICall;
 
 import java.util.Map;
 
 public class HttpHelper {
 
+    //https://www.jianshu.com/p/3a7c7a54ed0b volatile的作用
+    private volatile static HttpScheduler httpScheduler;
+
     public static Object execute(IRequest request, Map<String, Object> params) {
-        return null;
+        request.setParams(params);
+        ICall iCall = getHttpScheduler().newCall(request);
+        return getHttpScheduler().execute(iCall);
+    }
+
+    private static HttpScheduler getHttpScheduler() {
+        if (httpScheduler == null) {
+            synchronized (HttpHelper.class) {
+                if (httpScheduler == null) {
+                    httpScheduler = new OkHttpScheduler();
+                }
+            }
+        }
+        return httpScheduler;
     }
 }
