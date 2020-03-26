@@ -1,6 +1,7 @@
 package com.caotong.http.request;
 
 import com.caotong.http.annotation.RequestMethod;
+import com.caotong.http.parser.IParser;
 import com.caotong.http.request.host.IHost;
 
 import java.lang.reflect.Type;
@@ -15,6 +16,8 @@ public class LfRequest implements IRequest {
     protected Map<String, Object> params;
 
     protected Type type;
+
+    protected IParser resultParser;
 
     @RequestMethod
     protected int requestMethod;
@@ -42,6 +45,11 @@ public class LfRequest implements IRequest {
     @Override
     public String getPath() {
         return path;
+    }
+
+    @Override
+    public IParser getParser() {
+        return resultParser;
     }
 
     @Override

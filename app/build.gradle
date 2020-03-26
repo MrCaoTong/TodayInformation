@@ -34,6 +34,8 @@ dependencies {
 
     implementation project(':mvp')
     implementation project(':http')
+    implementation project(':annotation')
+    implementation project(':task')
 
     implementation("com.squareup.okhttp3:okhttp:4.4.0")
 

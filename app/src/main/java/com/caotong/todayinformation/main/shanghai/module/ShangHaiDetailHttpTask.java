@@ -1,13 +1,14 @@
 package com.caotong.todayinformation.main.shanghai.module;
 
 import com.caotong.http.LfHttpServer;
+import com.caotong.http.result.IResult;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ShangHaiDetailHttpTask extends LfHttpServer {
+public class ShangHaiDetailHttpTask<T> extends LfHttpServer {
 
-    public Object getXiaoHuaList(String sort, String page, String pagesize) {
+    public IResult<T> getXiaoHuaList(String sort, String page, String pagesize) {
         Map<String, Object> params = new HashMap<>();
         params.put("sort", sort);
         params.put("page", page);

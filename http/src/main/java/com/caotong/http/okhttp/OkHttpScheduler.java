@@ -2,6 +2,7 @@ package com.caotong.http.okhttp;
 
 import com.caotong.http.HttpScheduler;
 import com.caotong.http.annotation.RequestMethod;
+import com.caotong.http.https.Https;
 import com.caotong.http.request.IRequest;
 import com.caotong.http.request.call.ICall;
 
@@ -55,9 +56,18 @@ public class OkHttpScheduler extends HttpScheduler {
 
     private OkHttpClient getClient() {
         if (client == null) {
-            client = new OkHttpClient();
-//            OkHttpClient.Builder builder = new OkHttpClient.Builder();
-//            client = builder.build();
+            //            client = new OkHttpClient();
+            OkHttpClient.Builder builder = new OkHttpClient.Builder();
+            builder.sslSocketFactory(Https.getSSLSocketFactory());
+//            Https2.SSLParams sslSocketFactory = Https2.getSslSocketFactory(null, null, null);
+//            builder.sslSocketFactory(sslSocketFactory.sSLSocketFactory,sslSocketFactory.trustManager);
+            builder.hostnameVerifier(new HostnameVerifier() {
+                @Override
+                public boolean verify(String hostname, SSLSession session) {
+                    return true;
+                }
+            });
+            client = builder.build();
         }
         return client;
     }

@@ -5,7 +5,7 @@ import com.caotong.http.response.IResponse;
 
 public interface ICall {
 
-    Object execute();
+    IResponse execute();
 
     IRequest getRequest();
 }

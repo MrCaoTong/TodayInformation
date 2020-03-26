@@ -134,7 +134,7 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
 
     private void changeAnimation(RadioGroup gone, RadioGroup show) {
         gone.clearAnimation();
-        Animation animationGone = AnimationUtils.loadAnimation(this, R.anim.main_tab_tanslate_gone);
+        Animation animationGone = AnimationUtils.loadAnimation(this, R.anim.main_tab_translate_gone);
         gone.startAnimation(animationGone);
         gone.setVisibility(View.GONE);
 
