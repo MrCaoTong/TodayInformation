@@ -1,14 +1,17 @@
 package com.caotong.todayinformation.main;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.fragment.app.Fragment;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.caotong.todayinformation.R;
 import com.caotong.todayinformation.base.BaseActivity;
 import com.caotong.todayinformation.base.ViewInject;
@@ -28,11 +31,11 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
     @BindView(R.id.fl_main_center)
     FrameLayout flMainCenter;
     @BindView(R.id.rb_main_shanghai)
-    RadioButton rbMainShanghai;
+    LottieAnimationView rbMainShanghai;
     @BindView(R.id.rb_main_hangzhou)
-    RadioButton rbMainHangzhou;
+    LottieAnimationView rbMainHangzhou;
     @BindView(R.id.rg_main_top)
-    RadioGroup rgMainTop;
+    LinearLayout rgMainTop;
     @BindView(R.id.rb_main_beijing)
     RadioButton rbMainBeijing;
     @BindView(R.id.rb_main_shenzhen)
@@ -59,7 +62,8 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
                     return;
                 }
                 presenter.replaceFragment(MainConstantTool.SHANGHAI);
-                rbMainShanghai.setChecked(true);
+                rbMainShanghai.playAnimation();
+                rbMainHangzhou.pauseAnimation();
             }
         });
         rbMainHangzhou.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +73,8 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
                     return;
                 }
                 presenter.replaceFragment(MainConstantTool.HANGZHOU);
-                rbMainHangzhou.setChecked(true);
+                rbMainHangzhou.playAnimation();
+                rbMainShanghai.pauseAnimation();
             }
         });
         rbMainBeijing.setOnClickListener(new View.OnClickListener() {
@@ -114,10 +119,10 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
     private void handleBottomPosition() {
         if (presenter.getTopPosition() != 1) {
             presenter.replaceFragment(MainConstantTool.SHANGHAI);
-            rbMainShanghai.setChecked(true);
+            rbMainShanghai.playAnimation();
         } else {
             presenter.replaceFragment(MainConstantTool.HANGZHOU);
-            rbMainHangzhou.setChecked(true);
+            rbMainHangzhou.playAnimation();
         }
     }
 
@@ -132,7 +137,7 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
         }
     }
 
-    private void changeAnimation(RadioGroup gone, RadioGroup show) {
+    private void changeAnimation(ViewGroup gone, ViewGroup show) {
         gone.clearAnimation();
         Animation animationGone = AnimationUtils.loadAnimation(this, R.anim.main_tab_translate_gone);
         gone.startAnimation(animationGone);
