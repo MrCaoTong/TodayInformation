@@ -8,6 +8,7 @@ import com.caotong.todayinformation.R;
 import com.caotong.todayinformation.base.BaseFragment;
 import com.caotong.todayinformation.base.ViewInject;
 import com.caotong.todayinformation.main.hangzhou.adapter.ZhiHuAdapter;
+import com.caotong.todayinformation.main.hangzhou.refresh.MeiTuanRefreshManager;
 import com.caotong.todayinformation.main.shanghai.dto.ShangHaiDetailBean;
 import com.caotong.todayinformation.main.shanghai.lf.IShanghaiDetailContract;
 import com.caotong.todayinformation.main.shanghai.presenter.ShanghaiDetailPresenter;
@@ -31,7 +32,8 @@ public class RefreshFragment extends BaseFragment implements IShanghaiDetailCont
 
     private void initRefreshLayout() {
         //1、采用默认的方式
-        godRefresh.setRefreshManager();
+        //2、自定义方式
+        godRefresh.setRefreshManager(new MeiTuanRefreshManager(mContext));
         godRefresh.setRefreshListener(new GodRefreshLayout.RefreshingListener() {
             @Override
             public void onRefreshing() {
