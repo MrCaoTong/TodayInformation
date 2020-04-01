@@ -1,5 +1,6 @@
 package com.caotong.http.request;
 
+import com.caotong.http.parser.IParser;
 import com.caotong.http.request.host.IHost;
 
 import java.lang.reflect.Type;
@@ -15,6 +16,8 @@ public interface IRequest {
     IHost getHost();
 
     String getPath();
+
+    IParser getParser();
 
     Type getType();
 }

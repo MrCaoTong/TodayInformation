@@ -14,9 +14,12 @@ import androidx.core.util.Pair;
 import com.caotong.todayinformation.R;
 import com.caotong.todayinformation.base.BaseActivity;
 import com.caotong.todayinformation.base.ViewInject;
+import com.caotong.todayinformation.main.shanghai.dto.ShangHaiDetailBean;
+import com.caotong.todayinformation.main.shanghai.lf.IShanghaiDetailContract;
 import com.caotong.todayinformation.main.shanghai.manager.GetXiaoHuaTask;
 import com.caotong.todayinformation.main.shanghai.module.ShangHaiDetailHttpTask;
 import com.caotong.todayinformation.main.shanghai.module.ShangHaiDetailRequest;
+import com.caotong.todayinformation.main.shanghai.presenter.ShanghaiDetailPresenter;
 
 import java.io.IOException;
 
@@ -30,11 +33,13 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 @ViewInject(mainlayoutid = R.layout.activity_shanghai_detail)
-public class ShangHaiDetailActivity extends BaseActivity {
+public class ShangHaiDetailActivity extends BaseActivity implements IShanghaiDetailContract.Iview {
 
     public static String mActivityOptionsCompat = "ShanghaiDetailActivity";
     @BindView(R.id.detail_shanghai_iv)
     ImageView detailShanghaiIv;
+
+    IShanghaiDetailContract.IPresenter mPresenter = new ShanghaiDetailPresenter(this);
 
     @Override
     public void afterBindView() {
@@ -66,8 +71,14 @@ public class ShangHaiDetailActivity extends BaseActivity {
     }
 
     private void initGetNetData() {
-        GetXiaoHuaTask task = new GetXiaoHuaTask();
-        task.execute("desc", "1", "1");
+//        GetXiaoHuaTask task = new GetXiaoHuaTask();
+//        task.execute("desc", "1", "1");
+//        detailShanghaiIv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mPresenter.getNetData();
+//            }
+//        });
     }
 
     private void initAnima() {
@@ -88,5 +99,10 @@ public class ShangHaiDetailActivity extends BaseActivity {
             ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, pair);
             ActivityCompat.startActivity(activity, intent, optionsCompat.toBundle());
         }
+    }
+
+    @Override
+    public void showData(ShangHaiDetailBean data) {
+        Log.i("test:",data.result.data+" ");
     }
 }

@@ -13,9 +13,14 @@
         android:visibility="gone" />
 
     <TextView
+        android:maxLines="2"
+        android:ellipsize="end"
         android:id="@+id/item_shanghai_tv"
+        android:background="@color/color_ADADAD"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:text="welcome to shanghai" />
+        android:text=""
+        android:textColor="@color/color_ffffff" />
 </LinearLayout>

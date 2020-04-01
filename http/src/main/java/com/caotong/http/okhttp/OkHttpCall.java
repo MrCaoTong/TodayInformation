@@ -21,7 +21,7 @@ public class OkHttpCall implements ICall {
     }
 
     @Override
-    public Object execute() {
+    public IResponse execute() {
         Response response = null;
         try {
             response = call.execute();
@@ -29,7 +29,8 @@ public class OkHttpCall implements ICall {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return response;
+        OkHttpResponse okHttpResponse = new OkHttpResponse(response);
+        return okHttpResponse;
     }
 
     @Override
