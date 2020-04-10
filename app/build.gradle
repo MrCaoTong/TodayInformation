@@ -34,11 +34,14 @@ dependencies {
 
     implementation project(':mvp')
     implementation project(':http')
+    //apt
     implementation project(':annotation')
+    annotationProcessor project(':apt')
+
     implementation project(':task')
     implementation project(':refresh')
 
-    implementation("com.squareup.okhttp3:okhttp:4.4.0")
+//    implementation("com.squareup.okhttp3:okhttp:4.4.0")
 
     implementation 'com.airbnb.android:lottie:2.8.0'
 
